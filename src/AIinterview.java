@@ -39,6 +39,12 @@ public class AIinterview extends JFrame {
 	
 	//버튼 삽입
 	public void addButton() {
+		
+		JLabel label = new JLabel("AI 면접실~");
+		label.setOpaque(true);
+		label.setBounds(45,20,100,30);
+		label.setBackground(Color.LIGHT_GRAY);
+		this.add(label);
 
 		//버튼 생성
 		for(int i=0; i<14; i++) {
