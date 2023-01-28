@@ -69,7 +69,7 @@ public class AIinterview extends JFrame {
 		// 오늘부터 일주일 뒤 까지 해당 날짜 버튼 색 변경
 		for (int i = dayOfWeekValue; i < dayOfWeekValue + 7; i++) {
 			btnArray[i].setBackground(Color.PINK);
-			btnArray[i].addActionListener(new MyActionListener(i, formatedNow));
+			btnArray[i].addActionListener(new MyActionListener(i)); //버튼 액션 리스터에 i를 주면 안됨. 첫 색칠블럭은 0, 두번째 색칠블럭은 1. 이렇게 줘야됨.
 		}
 		
 

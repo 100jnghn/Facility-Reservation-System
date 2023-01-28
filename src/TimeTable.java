@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.*;
 
 public class TimeTable extends JFrame {
@@ -6,7 +9,11 @@ public class TimeTable extends JFrame {
 	private JPanel panel = new JPanel();
 	private int width;
 	private int height;
-	private String formatedNow;
+	private String dayString[] = { "일", "월", "화", "수", "목", "금", "토" };
+	public DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+	public LocalDate now = LocalDate.now();
+	public String formatedNow = now.format(formatter);
+	public int dayOfWeekValue = now.getDayOfWeek().getValue();
 	
 	private JLabel todayLabel;
 
@@ -29,7 +36,7 @@ public class TimeTable extends JFrame {
 	public void addTodayLabel(int n) {
 		
 		//오늘 날짜	
-		todayLabel = new JLabel(formatedNow+n); //formatedNow가 안넘어옴
+		todayLabel = new JLabel(formatedNow + n); //String + Integer라 안됨
 		todayLabel.setOpaque(true);
 		todayLabel.setBounds(20,0,150,30);
 		todayLabel.setBackground(Color.LIGHT_GRAY);
