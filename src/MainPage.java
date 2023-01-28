@@ -72,6 +72,7 @@ public class MainPage extends JFrame{
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.drawImage(img,0,0,getWidth(),getHeight(),this);
+			panel.repaint();
 		}
 	}
 
