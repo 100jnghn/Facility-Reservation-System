@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,6 +52,8 @@ public class AIinterview extends JFrame {
 
 		addButton(); // 버튼 삽입
 		addLabel(); // 라벨 삽입
+		
+		panel.repaint();
 	}
 
 	// 버튼 삽입
@@ -72,18 +75,18 @@ public class AIinterview extends JFrame {
 			btnArray[i].addActionListener(new MyActionListener(i)); //버튼 액션 리스터에 i를 주면 안됨. 첫 색칠블럭은 0, 두번째 색칠블럭은 1. 이렇게 줘야됨.
 		}
 		
-
-		panel.repaint();
 	}
 
 	// 라벨 삽입
 	public void addLabel() {
 
-		// 방 이름 라벨 - 상단에 위치
-		roomLabel = new JLabel("AI 면접실~");
+		//방 이름 라벨 - 상단에 위치
+		roomLabel = new JLabel("AI 면접실");
 		roomLabel.setOpaque(true);
-		roomLabel.setBounds(45, 20, 100, 30);
+		roomLabel.setBounds(45, 20, btnWidth, 30);
 		roomLabel.setBackground(Color.LIGHT_GRAY);
+		roomLabel.setFont(new Font("맑은 고딕",Font.BOLD,20));
+		roomLabel.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(roomLabel);
 		
 		//오늘 날짜	
@@ -91,6 +94,8 @@ public class AIinterview extends JFrame {
 		todayLabel.setOpaque(true);
 		todayLabel.setBounds(825,50,120,30);
 		todayLabel.setBackground(Color.LIGHT_GRAY);
+		roomLabel.setFont(new Font("맑은 고딕",Font.BOLD,20));
+		todayLabel.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(todayLabel);	
 
 		// 요일 라벨
@@ -99,12 +104,13 @@ public class AIinterview extends JFrame {
 			dayLabel[i].setOpaque(true);
 			dayLabel[i].setBounds(btnStartX + (130 * i), 120, btnWidth, btnHeight / 3);
 			dayLabel[i].setBackground(Color.LIGHT_GRAY);
+			dayLabel[i].setFont(new Font("맑은 고딕",Font.BOLD,20));
 			if (i == 0)	dayLabel[i].setBackground(Color.RED);
 			if (i == 6)	dayLabel[i].setBackground(Color.BLUE);
+			dayLabel[i].setHorizontalAlignment(JLabel.CENTER);
 			this.add(dayLabel[i]);
 		}
 		
-		panel.repaint();
 	}
 	
 
